@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Evan Nook
+  description: Install and configure certbot
+  company: InnoNook
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+  galaxy_tags:
+    - debian
+    - certbot
+dependencies:
+  - evannook.sysbase

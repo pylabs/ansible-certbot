@@ -1,0 +1,8 @@
+---
+- name: create certbot directory
+  file: "path=/opt/certbot state=directory mode=0755"
+- name: download certbot
+  get_url:
+    url: "https://dl.eff.org/certbot-auto"
+    dest: "/opt/certbot/certbot-auto"
+    mode: "0755"
