@@ -5,4 +5,6 @@
   get_url:
     url: "https://dl.eff.org/certbot-auto"
     dest: "/opt/certbot/certbot-auto"
+    owner: "root"
+    group: "root"
     mode: "0755"
