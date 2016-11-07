@@ -1,3 +1,6 @@
 ---
-- name: install certbot
-  apt: "name=certbot default_release=jessie-backports state=present"
+- block:
+  - name: install certbot
+    apt: "name=certbot default_release=jessie-backports state=present"
+  tags:
+    - certbot
