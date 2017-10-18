@@ -1,19 +1,19 @@
 certbot
 =======
 
-Install and configure certbot
+Install and configure letsencrypt facility
 
 Dependencies
 ------------
 
-- evannook.sysbase
+- pylabs.sysbase
 
 Example Playbook
 ----------------
 
 ```yaml
   roles:
-    - role: evannook.certbot
+    - role: pylabs.letsencrypt
 ```
 
 License
@@ -24,4 +24,4 @@ MIT
 Author Information
 ------------------
 
-Evan Nook
+William Wu
