@@ -1,13 +1,6 @@
 ---
 - block:
-  - name: install certbot
-    apt: "name=certbot default_release=jessie-backports state=present"
-  - name: install certbot cronjob
-    copy:
-      src: certbot
-      dest: /etc/cron.daily/certbot
-      owner: root
-      group: root
-      mode: "0755"
+  - name: install packages
+    apt: "name=dehydrated state=latest"
   tags:
-    - certbot
+    - letsencrypt
