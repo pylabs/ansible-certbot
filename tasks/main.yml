@@ -2,5 +2,19 @@
 - block:
   - name: install packages
     apt: "name=dehydrated state=latest"
+  - name: add dehydrated custom config
+    copy:
+      src: "99_custom.sh"
+      dest: "/etc/dehydrated/conf.d/99_custom.sh"
+      mode: "0644"
+      owner: "root"
+      group: "root"
+  - name: create missing acme challenge dir
+    file:
+      path: "/var/lib/dehydrated/acme-challenge"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+      state: "directory"
   tags:
     - letsencrypt
