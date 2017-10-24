@@ -16,5 +16,12 @@
       owner: "root"
       group: "root"
       state: "directory"
+  - name: add dehydrated cronjob
+    copy:
+      src: "dehydrated"
+      dest: "/etc/cron.daily/dehydrated"
+      mode: "0755"
+      owner: "root"
+      group: "root"
   tags:
     - letsencrypt
