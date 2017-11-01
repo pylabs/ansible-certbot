@@ -6,7 +6,7 @@ Install and configure letsencrypt facility
 Dependencies
 ------------
 
-- pylabs.sysbase
+- pylabs.nginx
 
 Example Playbook
 ----------------

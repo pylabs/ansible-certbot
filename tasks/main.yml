@@ -1,5 +1,13 @@
 ---
 - block:
+  - name: check if dhparam file exists
+    stat:
+      path: "/etc/ssl/certs/dhparam.pem"
+    register: dhparam_file
+  - name: generate dhparam file if not exists
+    command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
+    async: 3600
+    when: "dhparam_file.stat.exists == False"
   - name: install packages
     apt: "name=dehydrated state=latest"
   - name: add dehydrated custom config

@@ -12,4 +12,4 @@ galaxy_info:
     - debian
     - letsencrypt
 dependencies:
-  - pylabs.sysbase
+  - pylabs.nginx
