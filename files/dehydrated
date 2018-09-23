@@ -1,2 +1,3 @@
 #!/bin/bash
 dehydrated -c
+systemctl reload nginx
