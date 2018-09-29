@@ -40,6 +40,7 @@
         lineinfile:
           path: "/etc/dehydrated/domains.txt"
           line: "{{ letsencrypt_domain_name }}"
+          create: "yes"
       - name: install nginx config
         template:
           src: "nginx_before_auth.j2"
