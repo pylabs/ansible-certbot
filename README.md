@@ -3,13 +3,6 @@ letsencrypt
 
 Install and configure letsencrypt facility
 
-Role Variables
---------------
-
-```yaml
-letsencrypt_domain_name: YOUR_DOMAIN_NAME
-```
-
 Dependencies
 ------------
 
@@ -19,10 +12,8 @@ Example Playbook
 ----------------
 
 ```yaml
-  roles:
-    - role: pylabs.letsencrypt
-  vars:
-    letsencrypt_domain_name: www.example.com
+roles:
+  - role: pylabs.letsencrypt
 ```
 
 License
