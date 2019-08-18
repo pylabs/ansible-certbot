@@ -23,7 +23,8 @@
       mode: "0755"
       owner: "root"
       group: "root"
+  # workaround task
   - name: accept terms of service
-    command: "dehydrated --register --accept-terms"
+    command: "/usr/local/sbin/dehydrated-0.6.5 --register --accept-terms"
   tags:
     - letsencrypt
