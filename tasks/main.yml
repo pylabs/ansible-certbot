@@ -7,9 +7,18 @@
       creates: "/etc/ssl/certs/dhparam.pem"
   - name: install packages
     apt: "name=dehydrated state=latest"
+  # workaround task
+  - name: install workable dehydrated
+    copy:
+      src: "dehydrated-0.6.5"
+      dest: "/usr/local/sbin"
+      mode: "0700"
+      owner: "root"
+      group: "root"
+  # workaround task
   - name: add dehydrated cronjob
     copy:
-      src: "dehydrated"
+      src: "dehydrated-cron-workaround"
       dest: "/etc/cron.daily/dehydrated"
       mode: "0755"
       owner: "root"
