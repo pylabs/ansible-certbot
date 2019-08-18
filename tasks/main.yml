@@ -1,29 +1,12 @@
 ---
 - block:
-  - name: check if dhparam file exists
-    stat:
-      path: "/etc/ssl/certs/dhparam.pem"
-    register: dhparam_file
   - name: generate dhparam file if not exists
     command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
     async: 3600
-    when: "dhparam_file.stat.exists == False"
+    args:
+      creates: "/etc/ssl/certs/dhparam.pem"
   - name: install packages
     apt: "name=dehydrated state=latest"
-  - name: add dehydrated custom config
-    copy:
-      src: "99_custom.sh"
-      dest: "/etc/dehydrated/conf.d/99_custom.sh"
-      mode: "0644"
-      owner: "root"
-      group: "root"
-  - name: create missing acme challenge dir
-    file:
-      path: "/var/lib/dehydrated/acme-challenge"
-      mode: "0755"
-      owner: "root"
-      group: "root"
-      state: "directory"
   - name: add dehydrated cronjob
     copy:
       src: "dehydrated"
