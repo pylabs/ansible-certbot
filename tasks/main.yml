@@ -14,5 +14,7 @@
       mode: "0755"
       owner: "root"
       group: "root"
+  - name: accept terms of service
+    command: "dehydrated --register --accept-terms"
   tags:
     - letsencrypt
