@@ -5,26 +5,16 @@
     async: 3600
     args:
       creates: "/etc/ssl/certs/dhparam.pem"
-  - name: install packages
+  - name: install dehydrated package
     apt: "name=dehydrated state=latest"
-  # workaround task
-  - name: install workable dehydrated
-    copy:
-      src: "dehydrated-0.6.5"
-      dest: "/usr/local/sbin"
-      mode: "0700"
-      owner: "root"
-      group: "root"
-  # workaround task
   - name: add dehydrated cronjob
     copy:
-      src: "dehydrated-cron-workaround"
+      src: "dehydrated"
       dest: "/etc/cron.daily/dehydrated"
       mode: "0755"
       owner: "root"
       group: "root"
-  # workaround task
   - name: accept terms of service
-    command: "/usr/local/sbin/dehydrated-0.6.5 --register --accept-terms"
+    command: "dehydrated --register --accept-terms"
   tags:
     - letsencrypt
