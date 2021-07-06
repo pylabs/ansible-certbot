@@ -4,7 +4,7 @@ galaxy_info:
   description: Install and configure letsencrypt facility
   company: PyLabs
   license: MIT
-  min_ansible_version: 2.11
+  min_ansible_version: 2.0
   platforms:
   - name: Debian
     versions:

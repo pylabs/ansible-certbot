@@ -1,20 +1,20 @@
 ---
 - block:
   - name: generate dhparam file if not exists
-    ansible.builtin.command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
+    command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
     async: 3600
     args:
       creates: "/etc/ssl/certs/dhparam.pem"
   - name: install dehydrated package
-    ansible.builtin.apt: "name=dehydrated state=latest"
+    apt: "name=dehydrated state=latest"
   - name: add dehydrated cronjob
-    ansible.builtin.copy:
+    copy:
       src: "dehydrated"
       dest: "/etc/cron.daily/dehydrated"
       mode: "0755"
       owner: "root"
       group: "root"
   - name: accept terms of service
-    ansible.builtin.command: "dehydrated --register --accept-terms"
+    command: "dehydrated --register --accept-terms"
   tags:
     - letsencrypt
