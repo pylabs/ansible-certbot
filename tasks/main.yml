@@ -1,8 +1,7 @@
 ---
 - block:
   - name: generate dhparam file if not exists
-    ansible.builtin.command:
-      cmd: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
+    ansible.builtin.command: "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096"
     async: 3600
     args:
       creates: "/etc/ssl/certs/dhparam.pem"
@@ -16,7 +15,6 @@
       owner: "root"
       group: "root"
   - name: accept terms of service
-    ansible.builtin.command:
-      cmd: "dehydrated --register --accept-terms"
+    ansible.builtin.command: "dehydrated --register --accept-terms"
   tags:
     - letsencrypt
